@@ -67,13 +67,15 @@ public class ControlFunctionality implements Cloneable
 {
 	
 	@XmlElement(required = true)
-	@JsonIgnore
+	//@JsonIgnore
+	@JsonProperty("commands")
 	protected Commands commands;
 	
 	// workaround for properly serialize a JSON message: it avoids a "redundant"
 	// array
 	@XmlTransient
-	@JsonProperty("commands")
+	//@JsonProperty("commands")
+	@JsonIgnore
 	protected List<Configcommand> commandList;
 	
 	@XmlAttribute(name = "class", required = true)
