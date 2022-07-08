@@ -67,13 +67,15 @@ public class NotificationFunctionality implements Cloneable
 {
 	
 	@XmlElement(required = true)
-	@JsonIgnore
+	//@JsonIgnore
+	@JsonProperty("notifications")
 	protected Notifications notifications;
 	
 	// workaround for properly serialize a JSON message: it avoids a "redundant"
 	// array
 	@XmlTransient
-	@JsonProperty("notifications")
+	//@JsonProperty("notifications")
+	@JsonIgnore
 	protected List<Confignotification> notificationList;
 	
 	@XmlAttribute(name = "class", required = true)
